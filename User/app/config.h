@@ -64,7 +64,9 @@ void start_task01_data(void);
 void start_task02_key(void);
 void start_task04_hmi(void);
 
-
+extern volatile uint8_t CMD_sta;
+extern volatile uint8_t CMD_cmd;
+extern volatile uint8_t CMD_id;
 		
 #ifdef __cplusplus
 }

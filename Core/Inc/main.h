@@ -61,8 +61,6 @@ void Error_Handler(void);
 #define led_GPIO_Port GPIOC
 #define key_1_Pin GPIO_PIN_0
 #define key_1_GPIO_Port GPIOA
-#define dat_433m_Pin GPIO_PIN_3
-#define dat_433m_GPIO_Port GPIOA
 #define key_2_Pin GPIO_PIN_12
 #define key_2_GPIO_Port GPIOA
 

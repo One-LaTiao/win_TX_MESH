@@ -247,73 +247,6 @@ int time2expire(void)
 //}
 
 
-#define BIT_NUM 24
-#define TX_0 10
-#define TX_1 25
-
-#define START_SIGNAL 109
-
-volatile microsec_t m433_timer = 0;//信号计时长度
-volatile uint8_t tx_sta = 0;  	//0表示空闲状态,2标识接下来发高电平时间
-volatile uint8_t bit_count = 0;  	//发送数量计数
-volatile uint32_t tx_data = 0;
-
-void m433_tx(void)
-{
-	if(tx_sta < 1){ /*当发送标志位为0时，停止发送*/
-		return ; 
-	}
-	
-	if(bit_count > BIT_NUM){
-		tx_sta =0;/*关闭发送开关*/
-		bit_count = 0; /*发送数量清零*/
-		HAL_GPIO_WritePin(dat_433m_GPIO_Port,dat_433m_Pin,GPIO_PIN_SET);
-		m433_timer = 0;
-		return ;
-	}
-	
-	if(tx_sta == 1){/*启动信号，低电平时间11ms，*/
-		HAL_GPIO_WritePin(dat_433m_GPIO_Port,dat_433m_Pin,GPIO_PIN_RESET);
-		if(m433_timer++ > START_SIGNAL){
-			m433_timer = 0;
-			tx_sta = 2;
-			return ;
-		}
-	}
-	
-	
-	if(tx_sta == 2){/*当开启发送时，先发送低电平*/
-		HAL_GPIO_WritePin(dat_433m_GPIO_Port,dat_433m_Pin,GPIO_PIN_SET);
-		if(((tx_data >> bit_count) & 0x00000001) == 0x00){/*如果发送的数据是0，则根据0的发送时间来计算*/
-			if(m433_timer++ > TX_0){
-				bit_count++;
-				m433_timer = 0;
-				tx_sta = 3;
-			}
-		}else{/*如果发送的数据是1，则根据1的发送时间来计算*/
-			if(m433_timer++ > TX_1){
-				bit_count++;
-				m433_timer = 0;
-				tx_sta = 3;
-			}
-		}
-	}else if(tx_sta == 3){/*当低电平发送完成，再发送高电平电平*/
-		HAL_GPIO_WritePin(dat_433m_GPIO_Port,dat_433m_Pin,GPIO_PIN_RESET);
-		if(((tx_data >> bit_count) & 0x00000001) == 0x00){/*如果发送的数据是0，则根据0的发送时间来计算*/
-			if(m433_timer++ > TX_0){
-				bit_count++;
-				m433_timer = 0;
-				tx_sta = 2;
-			}
-		}else{
-			if(m433_timer++ > TX_1){/*如果发送的数据是1，则根据1的发送时间来计算*/
-				bit_count++;
-				m433_timer = 0;
-				tx_sta = 2;
-			}
-		}
-	}
-}
 
 
 
@@ -327,7 +260,6 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
     }
 		if(htim == &htim1)
 		{
-			m433_tx();
 //		 HAL_GPIO_TogglePin(dat_433m_GPIO_Port,dat_433m_Pin);
 		}
 }
