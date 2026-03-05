@@ -215,14 +215,14 @@ void NotifyButton(uint16 screen_id, uint16 control_id, uint8  state)
 				case 11:
 					if(state){/*广播全部关闭*/
 						CMD_sta = 1;
-						CMD_cmd = 1;
+						CMD_cmd = 2;
 						CMD_id = 0xff;
 					}
 				break;				
 				case 12:
 					if(state){/*广播全部停止*/
 						CMD_sta = 1;
-						CMD_cmd = 1;
+						CMD_cmd = 3;
 						CMD_id = 0xff;
 					}
 				break;
@@ -236,48 +236,48 @@ void NotifyButton(uint16 screen_id, uint16 control_id, uint8  state)
 					if(state){/*打开*/
 						CMD_sta = 1;
 						CMD_cmd = 1;
-						CMD_id = 0xff;
+						CMD_id = 0x01;
 					}
 				break;				
 				case 11:
 					if(state){/*关闭*/
 						CMD_sta = 1;
-						CMD_cmd = 1;
-						CMD_id = 0xff;
+						CMD_cmd = 2;
+						CMD_id = 0x01;
 					}
 				break;				
 				case 12:
 					if(state){/*打开*/
 						CMD_sta = 1;
 						CMD_cmd = 1;
-						CMD_id = 0xff;
+						CMD_id = 0x02;
 					}
 				break;
 				case 13:
 					if(state){/*关闭*/
 						CMD_sta = 1;
-						CMD_cmd = 1;
-						CMD_id = 0xff;
+						CMD_cmd = 2;
+						CMD_id = 0x02;
 					}
 				break;				
 				case 14:
 					if(state){/*打开*/
 						CMD_sta = 1;
 						CMD_cmd = 1;
-						CMD_id = 0xff;
+						CMD_id = 0x03;
 					}
 				break;				
 				case 15:
 					if(state){/*关闭*/
 						CMD_sta = 1;
-						CMD_cmd = 1;
-						CMD_id = 0xff;
+						CMD_cmd = 2;
+						CMD_id = 0x03;
 					}
 				break;
 				case 20:
 					if(state){/*广播全部停止*/
 						CMD_sta = 1;
-						CMD_cmd = 1;
+						CMD_cmd = 3;
 						CMD_id = 0xff;
 					}
 				break;				
@@ -292,48 +292,48 @@ void NotifyButton(uint16 screen_id, uint16 control_id, uint8  state)
 					if(state){/*打开*/
 						CMD_sta = 1;
 						CMD_cmd = 1;
-						CMD_id = 0xff;
+						CMD_id = 0x04;
 					}
 					break;				
 				case 11:
 					if(state){/*关闭*/
 						CMD_sta = 1;
-						CMD_cmd = 1;
-						CMD_id = 0xff;
+						CMD_cmd = 2;
+						CMD_id = 0x04;
 					}
 				break;				
 				case 12:
 					if(state){/*打开*/
 						CMD_sta = 1;
 						CMD_cmd = 1;
-						CMD_id = 0xff;
+						CMD_id = 0x05;
 					}
 					break;
 				case 13:
 					if(state){/*关闭*/
 						CMD_sta = 1;
-						CMD_cmd = 1;
-						CMD_id = 0xff;
+						CMD_cmd = 2;
+						CMD_id = 0x05;
 					}
 					break;				
 				case 14:
 					if(state){/*打开*/
 						CMD_sta = 1;
 						CMD_cmd = 1;
-						CMD_id = 0xff;
+						CMD_id = 0x06;
 					}
 					break;				
 				case 15:
 					if(state){/*关闭*/
 						CMD_sta = 1;
-						CMD_cmd = 1;
-						CMD_id = 0xff;
+						CMD_cmd = 2;
+						CMD_id = 0x06;
 					}
 					break;
 				case 20:
 					if(state){/*广播全部停止*/
 						CMD_sta = 1;
-						CMD_cmd = 1;
+						CMD_cmd = 3;
 						CMD_id = 0xff;
 					}
 					break;				
@@ -348,62 +348,62 @@ void NotifyButton(uint16 screen_id, uint16 control_id, uint8  state)
 					if(state){/*打开*/
 						CMD_sta = 1;
 						CMD_cmd = 1;
-						CMD_id = 0xff;
+						CMD_id = 0x07;
 					}
 					break;				
 				case 11:
 					if(state){/*关闭*/
 						CMD_sta = 1;
-						CMD_cmd = 1;
-						CMD_id = 0xff;
+						CMD_cmd = 2;
+						CMD_id = 0x07;
 					}
 				break;				
 				case 12:
 					if(state){/*打开*/
 						CMD_sta = 1;
 						CMD_cmd = 1;
-						CMD_id = 0xff;
+						CMD_id = 0x08;
 					}
 					break;
 				case 13:
 					if(state){/*关闭*/
 						CMD_sta = 1;
-						CMD_cmd = 1;
-						CMD_id = 0xff;
+						CMD_cmd = 2;
+						CMD_id = 0x08;
 					}
 					break;				
 				case 14:
 					if(state){/*打开*/
 						CMD_sta = 1;
 						CMD_cmd = 1;
-						CMD_id = 0xff;
+						CMD_id = 0x09;
 					}
 					break;				
 				case 15:
 					if(state){/*关闭*/
 						CMD_sta = 1;
-						CMD_cmd = 1;
-						CMD_id = 0xff;
+						CMD_cmd = 2;
+						CMD_id = 0x09;
 					}
 					break;
 				case 16:
 					if(state){/*打开*/
 						CMD_sta = 1;
 						CMD_cmd = 1;
-						CMD_id = 0xff;
+						CMD_id = 0x0a;
 					}
 					break;				
 				case 17:
 					if(state){/*关闭*/
 						CMD_sta = 1;
-						CMD_cmd = 1;
-						CMD_id = 0xff;
+						CMD_cmd = 2;
+						CMD_id = 0x0a;
 					}
 					break;
 				case 20:
 					if(state){/*广播全部停止*/
 						CMD_sta = 1;
-						CMD_cmd = 1;
+						CMD_cmd = 3;
 						CMD_id = 0xff;
 					}
 					break;				
@@ -418,62 +418,62 @@ void NotifyButton(uint16 screen_id, uint16 control_id, uint8  state)
 					if(state){/*打开*/
 						CMD_sta = 1;
 						CMD_cmd = 1;
-						CMD_id = 0xff;
+						CMD_id = 0x0b;
 					}
 					break;				
 				case 11:
 					if(state){/*关闭*/
 						CMD_sta = 1;
-						CMD_cmd = 1;
-						CMD_id = 0xff;
+						CMD_cmd = 2;
+						CMD_id = 0x0b;
 					}
 				break;				
 				case 12:
 					if(state){/*打开*/
 						CMD_sta = 1;
 						CMD_cmd = 1;
-						CMD_id = 0xff;
+						CMD_id = 0x0c;
 					}
 					break;
 				case 13:
 					if(state){/*关闭*/
 						CMD_sta = 1;
-						CMD_cmd = 1;
-						CMD_id = 0xff;
+						CMD_cmd = 2;
+						CMD_id = 0x0c;
 					}
 					break;				
 				case 14:
 					if(state){/*打开*/
 						CMD_sta = 1;
 						CMD_cmd = 1;
-						CMD_id = 0xff;
+						CMD_id = 0x0d;
 					}
 					break;				
 				case 15:
 					if(state){/*关闭*/
 						CMD_sta = 1;
-						CMD_cmd = 1;
-						CMD_id = 0xff;
+						CMD_cmd = 2;
+						CMD_id = 0x0d;
 					}
 					break;
 				case 16:
 					if(state){/*打开*/
 						CMD_sta = 1;
 						CMD_cmd = 1;
-						CMD_id = 0xff;
+						CMD_id = 0x0e;
 					}
 					break;				
 				case 17:
 					if(state){/*关闭*/
 						CMD_sta = 1;
-						CMD_cmd = 1;
-						CMD_id = 0xff;
+						CMD_cmd = 2;
+						CMD_id = 0x0e;
 					}
 					break;
 				case 20:
 					if(state){/*广播全部停止*/
 						CMD_sta = 1;
-						CMD_cmd = 1;
+						CMD_cmd = 3;
 						CMD_id = 0xff;
 					}
 					break;				
